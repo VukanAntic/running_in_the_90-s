@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 1179873244}
   - component: {fileID: 1179873247}
   - component: {fileID: 1179873246}
+  - component: {fileID: 1179873248}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1120,22 +1121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3aa57eb9997da9429ad48620152e19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 325
-  m_CrouchSpeed: 1.4
-  m_MovementSmoothing: 0.05
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 55
-  m_GroundCheck: {fileID: 1377540995}
-  m_CeilingCheck: {fileID: 410520170}
-  m_CrouchDisableCollider: {fileID: 1179873245}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!61 &1179873244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1200,15 +1185,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bf1ed9a133d474db18354fc8cd35b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  speed: 2
+  rigidBody: {fileID: 1179873242}
+  speed: 0.1
   groundCheck: {fileID: 1377540995}
   checkRadius: 0.3
   whatIsGround:
     serializedVersion: 2
     m_Bits: 55
-  jumpForce: 7
+  jumpForce: 2
   jumpTime: 0.5
+  isJumping: 0
+  playerSlide: {fileID: 0}
 --- !u!114 &1179873247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,12 +1208,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7a3f5e22a828e46a1ef94b66d26a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 1179873246}
-  rigidbody: {fileID: 0}
+  rigidBody: {fileID: 0}
   regularCollider1: {fileID: 1179873245}
   regularCollider2: {fileID: 1179873244}
   slideCollider: {fileID: 1604954046}
   slideSpeed: 200
+  isSliding: 0
+  playerMovement: {fileID: 1179873246}
+--- !u!95 &1179873248
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179873238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9733b22f7400e5945827ff96d0be48c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1216877779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,7 +2063,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.67, y: 0.71}
+    oldSize: {x: 0.71, y: 0.67}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
