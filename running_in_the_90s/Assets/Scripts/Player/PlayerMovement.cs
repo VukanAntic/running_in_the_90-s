@@ -17,12 +17,14 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpTime;
     private float jumpTimeCounter;
-    private bool isJumping;
+    public bool isJumping = false;
 
+    public PlayerSlide playerSlide;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        playerSlide = GetComponent<PlayerSlide>();
     }
 
     private void Update()
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
             jumpTimeCounter = jumpTime;
         }
         
-        if (Input.GetKey(KeyCode.Space) && isJumping)
+        if (Input.GetKey(KeyCode.Space) && isJumping && !playerSlide.isSliding)
         {
             if (jumpTimeCounter > 0)
             {
