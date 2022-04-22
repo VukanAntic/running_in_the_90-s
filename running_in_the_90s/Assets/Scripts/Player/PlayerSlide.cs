@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSlide : MonoBehaviour
 {
-    
+    [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rigidBody;
 
     // public Animator anim;
@@ -26,13 +26,15 @@ public class PlayerSlide : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("isSliding", isSliding);
         // izmeni da bude sa "Ctrl"
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !alreadyPressedSlide && !playerMovement.isJumping) 
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !alreadyPressedSlide && playerMovement.isGrounded) 
         {
             alreadyPressedSlide = true;
             preformSlide();

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rigidBody;
     // private float moveInput;
     [SerializeField] private float speed = 7.0f;
 
-    private bool isGrounded;
+    public bool isGrounded;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask whatIsGround;
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpTime;
     private float jumpTimeCounter;
-    public bool isJumping = false;
+    private bool isJumping = false;
 
     public PlayerSlide playerSlide;
 
@@ -25,13 +25,16 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerSlide = GetComponent<PlayerSlide>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        // might need to change the checkRadius value, a little bit greater, this works for now
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        animator.SetBool("isJumping", !isGrounded);
 
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space) && !playerSlide.isSliding)
         {
             rigidBody.velocity = Vector2.up * jumpForce;
             isJumping = true;
@@ -46,18 +49,27 @@ public class PlayerMovement : MonoBehaviour
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
+            {
                 isJumping = false;
+            }     
+          
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
+        {
             isJumping = false;
+        }
+            
     }
 
     private void FixedUpdate()
 	{
         // treba probati GetAxisRaw, mozda je bolje tako
         // moveInput = Input.GetAxis("Horizontal");
+        // FEATURE:
+        // once our player presses start, only then will he start moving!
         rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
+        animator.SetFloat("Speed", speed);
 
 	}
 
