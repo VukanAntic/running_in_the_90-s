@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1179873248}
   rigidBody: {fileID: 1179873242}
-  speed: 0.1
+  speed: 0.5
   isGrounded: 0
   groundCheck: {fileID: 1377540995}
   checkRadius: 0.05
@@ -1183,8 +1183,8 @@ MonoBehaviour:
     m_Bits: 55
   jumpForce: 3
   jumpTime: 0.4
-  isJumping: 0
   playerSlide: {fileID: 1179873247}
+  playerStartedMoving: 0
 --- !u!114 &1179873247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,11 +1197,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7a3f5e22a828e46a1ef94b66d26a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   rigidBody: {fileID: 0}
   regularCollider1: {fileID: 1179873245}
   regularCollider2: {fileID: 1179873244}
   slideCollider: {fileID: 1604954046}
-  slideSpeed: 200
+  slideSpeed: 400
   isSliding: 0
   playerMovement: {fileID: 1179873246}
 --- !u!95 &1179873248
@@ -2431,7 +2432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1993215042
 Transform:
   m_ObjectHideFlags: 0
