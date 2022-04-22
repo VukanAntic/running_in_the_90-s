@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false;
 
     public PlayerSlide playerSlide;
+    public bool playerStartedMoving = false;
 
     private void Start()
     {
@@ -30,36 +31,45 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // might need to change the checkRadius value, a little bit greater, this works for now
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        animator.SetBool("isJumping", !isGrounded);
 
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space) && !playerSlide.isSliding)
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            rigidBody.velocity = Vector2.up * jumpForce;
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
+            playerStartedMoving = true;
         }
-        
-        if (Input.GetKey(KeyCode.Space) && isJumping && !playerSlide.isSliding)
+
+        if (playerStartedMoving)
         {
-            if (jumpTimeCounter > 0)
+            // might need to change the checkRadius value, a little bit greater, this works for now
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+            animator.SetBool("isJumping", !isGrounded);
+
+            if (isGrounded == true && Input.GetKeyDown(KeyCode.Space) && !playerSlide.isSliding)
             {
                 rigidBody.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter -= Time.deltaTime;
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
             }
-            else
+
+            if (Input.GetKey(KeyCode.Space) && isJumping && !playerSlide.isSliding)
+            {
+                if (jumpTimeCounter > 0)
+                {
+                    rigidBody.velocity = Vector2.up * jumpForce;
+                    jumpTimeCounter -= Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }
+
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 isJumping = false;
-            }     
-          
-        }
+            }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isJumping = false;
-        }
-            
+        }            
     }
 
     private void FixedUpdate()
@@ -68,9 +78,11 @@ public class PlayerMovement : MonoBehaviour
         // moveInput = Input.GetAxis("Horizontal");
         // FEATURE:
         // once our player presses start, only then will he start moving!
-        rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
-        animator.SetFloat("Speed", speed);
-
+        if (playerStartedMoving)
+        {
+            rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
+            animator.SetFloat("Speed", speed);
+        }
 	}
 
 }

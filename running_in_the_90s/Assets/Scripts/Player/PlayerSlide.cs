@@ -32,12 +32,18 @@ public class PlayerSlide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isSliding", isSliding);
-        // izmeni da bude sa "Ctrl"
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !alreadyPressedSlide && playerMovement.isGrounded) 
+
+        if (playerMovement.playerStartedMoving)
         {
-            alreadyPressedSlide = true;
-            preformSlide();
+
+            animator.SetBool("isSliding", isSliding);
+            // izmeni da bude sa "Ctrl"
+            if (Input.GetKeyDown(KeyCode.LeftControl) && !alreadyPressedSlide && playerMovement.isGrounded)
+            {
+                alreadyPressedSlide = true;
+                preformSlide();
+            }
+        
         }
     }
 
