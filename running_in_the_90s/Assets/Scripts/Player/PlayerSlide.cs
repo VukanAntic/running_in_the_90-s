@@ -14,7 +14,7 @@ public class PlayerSlide : MonoBehaviour
     [SerializeField] private BoxCollider2D regularCollider2;
     [SerializeField] private BoxCollider2D slideCollider;
 
-    [SerializeField] private float slideSpeed = 5.0F;
+    [SerializeField] private float slideSpeed = 300;
     public bool isSliding = false;
 
     private bool alreadyPressedSlide = false;
@@ -37,7 +37,6 @@ public class PlayerSlide : MonoBehaviour
         {
 
             animator.SetBool("isSliding", isSliding);
-            // izmeni da bude sa "Ctrl"
             if (Input.GetKeyDown(KeyCode.LeftControl) && !alreadyPressedSlide && playerMovement.isGrounded)
             {
                 alreadyPressedSlide = true;

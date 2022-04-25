@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [SerializeField] private Camera mainCamera;
+    private Vector3 playerCameraDistance;
+
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rigidBody;
     // private float moveInput;
-    [SerializeField] private float speed = 7.0f;
 
     public bool isGrounded;
     [SerializeField] private Transform groundCheck;
@@ -22,11 +25,16 @@ public class PlayerMovement : MonoBehaviour
     public PlayerSlide playerSlide;
     public bool playerStartedMoving = false;
 
+    public float speed = 7.0f;
+
+
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerSlide = GetComponent<PlayerSlide>();
         animator = GetComponent<Animator>();
+
+        playerCameraDistance = new Vector3(transform.position.x - mainCamera.transform.position.x, 0, 0);
     }
 
     private void Update()
@@ -82,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
             animator.SetFloat("Speed", speed);
+            mainCamera.transform.position = 
+                new Vector3(transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z) - playerCameraDistance;
         }
 	}
 
