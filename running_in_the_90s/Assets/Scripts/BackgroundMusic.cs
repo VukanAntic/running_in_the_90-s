@@ -8,7 +8,7 @@ public class BackgroundMusic : MonoBehaviour
 
     void Awake()
     {
-        if(backgroundMusic == null)
+        /*if (backgroundMusic == null)
         {
             backgroundMusic = this;
             DontDestroyOnLoad(backgroundMusic);
@@ -16,6 +16,6 @@ public class BackgroundMusic : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 }
