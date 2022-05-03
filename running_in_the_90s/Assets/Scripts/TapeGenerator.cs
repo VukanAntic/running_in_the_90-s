@@ -8,10 +8,11 @@ public class TapeGenerator : MonoBehaviour
     [SerializeField] private Transform player_transform;
     [SerializeField] private GameObject[] all_tapes;
     private float position_of_tape_y;
+    public string current_tape;
 
     // odlucimo na koliko sek se pusti pesma
-    private int lower_bound_time_interval = 10;
-    private int upper_bound_time_interval = 20;
+    private int lower_bound_time_interval = 3;
+    private int upper_bound_time_interval = 6;
     // ova promenljiva uzima random vrednost iz [lb, up], i ako je proslo otp toliko vrmena, onda radi
     private float time_chosen_for_next_tape;
     // nije = 0, da ne bi spawn odmah na pocetku tape
@@ -31,6 +32,7 @@ public class TapeGenerator : MonoBehaviour
 
     void Start()
     {
+        current_tape = "Tape-1";
         time_chosen_for_next_tape = Random.Range(lower_bound_time_interval, upper_bound_time_interval);
         // zelimo samo u odnosu na prvu poziciju player-a, tj, da bi bilo uvek u istom y (menjacemo vrv)
         position_of_tape_y = player_transform.position.y;
@@ -58,13 +60,20 @@ public class TapeGenerator : MonoBehaviour
                 if (Random.value < probability_of_secret_tape && !secret_tape_already_spawned
                     && number_of_tapes_spawned > all_tapes.Length)
                 {
+                    current_tape = "Tape-secret";
                     new_tape = Object.Instantiate(all_tapes[all_tapes.Length - 1]);
+                    Tape tape_info = new_tape.AddComponent<Tape>();
+                    tape_info.tapeGenerator = this;
                     secret_tape_already_spawned = false;
                 }
                 else
                 {
                     // -1, jer zelimo sve, osim poslednje da mogu da se spawn!
-                    new_tape = Object.Instantiate(all_tapes[Random.Range(0, all_tapes.Length - 1)]);
+                    int tape_chosen = Random.Range(0, all_tapes.Length - 1);
+                    current_tape = "Tape-" + (tape_chosen + 1);
+                    new_tape = Object.Instantiate(all_tapes[tape_chosen]);
+                    Tape tape_info = new_tape.AddComponent<Tape>();
+                    tape_info.tapeGenerator = this;
                     ++number_of_tapes_spawned;
                 }
                 // ovaj vektor bi trebao biti range od kamere!
