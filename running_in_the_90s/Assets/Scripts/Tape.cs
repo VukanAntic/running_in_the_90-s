@@ -20,5 +20,6 @@ public class Tape : MonoBehaviour
     {
         Debug.Log("Collide!");
         Destroy(gameObject);
+        FindObjectOfType<AudioManager>().Play("Tape2");
     }
 }
