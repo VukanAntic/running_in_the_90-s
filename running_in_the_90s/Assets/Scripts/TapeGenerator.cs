@@ -11,8 +11,8 @@ public class TapeGenerator : MonoBehaviour
     public string current_tape;
 
     // odlucimo na koliko sek se pusti pesma
-    private int lower_bound_time_interval = 3;
-    private int upper_bound_time_interval = 6;
+    private int lower_bound_time_interval = 45;
+    private int upper_bound_time_interval = 65;
     // ova promenljiva uzima random vrednost iz [lb, up], i ako je proslo otp toliko vrmena, onda radi
     private float time_chosen_for_next_tape;
     // nije = 0, da ne bi spawn odmah na pocetku tape

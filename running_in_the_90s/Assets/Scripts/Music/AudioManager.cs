@@ -25,7 +25,8 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-            s.source.loop = true;
+            if (s.name != "Tape-change")
+                s.source.loop = true;
         }
     }
 
@@ -38,18 +39,29 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string name)
     {
+        Sound intro = Array.Find(sounds, sound => sound.name == "Tape-change");
         if (previous_sound != null)
+        {
             previous_sound.source.Stop();
+            // pustanje intro-a (ovde jer ne zelimo prvi put da se pusti!)
+            intro.source.Play();
+        }
+        
 
+        // pustanje normalne pesme
         AudioSource audio = GetComponent<AudioSource>();
-        audio.Stop();
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if(s == null)
         {
             Debug.LogWarning("Sound" + name +  "not found!");
             return;
         }
-        s.source.Play();
+
+        if (previous_sound == null)
+            s.source.Play();
+        else
+            s.source.PlayDelayed(intro.clip.length);
+
         previous_sound = s;
         
     }
