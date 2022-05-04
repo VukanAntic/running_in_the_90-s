@@ -2349,8 +2349,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObsticlesStart: {fileID: 172327004}
-  Obsticles_1: {fileID: 1896265837212244725, guid: 3fc8825edff48f84591ecf08ab957d4b, type: 3}
-  Obsticles_2: {fileID: 6928442812521903278, guid: 92bf4fc4f7404874895c304e7dcecd67, type: 3}
+  AllObsticles:
+  - {fileID: 1896265837212244725, guid: 3fc8825edff48f84591ecf08ab957d4b, type: 3}
+  - {fileID: 6928442812521903278, guid: 92bf4fc4f7404874895c304e7dcecd67, type: 3}
+  - {fileID: 8150775040830031339, guid: 65fdfa843e5ecdb4bb4eebc82a52a169, type: 3}
+  Player: {fileID: 1179873239}
 --- !u!4 &1459058792
 Transform:
   m_ObjectHideFlags: 0
