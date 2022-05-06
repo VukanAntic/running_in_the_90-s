@@ -3021,7 +3021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clip: {fileID: 8300000, guid: 70217338c3a542a42929d13dd4b345bb, type: 3}
+  - clip: {fileID: 8300000, guid: 840c31eb2cce0fc438e273f1756130ec, type: 3}
     name: Tape-1
     volume: 0.173
     pitch: 1
@@ -3036,12 +3036,12 @@ MonoBehaviour:
     volume: 60
     pitch: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 94778438ad080004aadc03fd5045400b, type: 3}
+  - clip: {fileID: 8300000, guid: 1219d73ab0bb9f3448e5b5a1f0e6a2e9, type: 3}
     name: Tape-4
     volume: 60
     pitch: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 94778438ad080004aadc03fd5045400b, type: 3}
+  - clip: {fileID: 8300000, guid: cdfba4f3561e0264d8b5d136690973c0, type: 3}
     name: Tape-5
     volume: 60
     pitch: 1
