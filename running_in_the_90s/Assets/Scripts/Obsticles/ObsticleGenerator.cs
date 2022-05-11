@@ -12,6 +12,9 @@ public class ObsticleGenerator : MonoBehaviour
     [SerializeField] private List<Transform> AllObsticles;
     [SerializeField] private Transform Player;
 
+    [SerializeField] private List<Sprite> CarSprites;
+    [SerializeField] private List<Sprite> LimoSprites;
+
     private float lastEndObsticleX;
     private Transform lastLevelPart;
     private Queue<Transform> spawnedParts;
@@ -44,7 +47,21 @@ public class ObsticleGenerator : MonoBehaviour
     private Transform SpawnLevelPart(Vector3 spawnPosition)
     {
         int obsticleNumber = Random.Range(0, AllObsticles.Count);
-        return Instantiate(AllObsticles[obsticleNumber], spawnPosition, Quaternion.identity);
+        Transform obsticle = Instantiate(AllObsticles[obsticleNumber], spawnPosition, Quaternion.identity, this.transform);
+        switch(obsticleNumber)
+        {
+            case 0:
+                int carNumber = Random.Range(0, CarSprites.Count);
+                obsticle.Find("Car").GetComponent<SpriteRenderer>().sprite = CarSprites[carNumber];
+                break;
+            case 2:
+                int limoNumber = Random.Range(0, LimoSprites.Count);
+                obsticle.Find("Limo").GetComponent<SpriteRenderer>().sprite = LimoSprites[limoNumber];
+                break;
+            default:
+                break;
+        }
+        return obsticle;
     }
 
     void RemoveLevelPart(Transform part)
