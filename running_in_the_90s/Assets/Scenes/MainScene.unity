@@ -561,7 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 172327004}
   m_Layer: 0
-  m_Name: ObsticlesStart
+  m_Name: ObstaclesStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2227,7 +2227,7 @@ GameObject:
   - component: {fileID: 1459058792}
   - component: {fileID: 1459058791}
   m_Layer: 0
-  m_Name: ObsticleGenerator
+  m_Name: ObstacleGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2245,8 +2245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24d46f8022bc224d8394a1cb3d10036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObsticlesStart: {fileID: 172327004}
-  AllObsticles:
+  ObstaclesStart: {fileID: 172327004}
+  AllObstacles:
   - {fileID: 1896265837212244725, guid: 3fc8825edff48f84591ecf08ab957d4b, type: 3}
   - {fileID: 6928442812521903278, guid: 92bf4fc4f7404874895c304e7dcecd67, type: 3}
   - {fileID: 8150775040830031339, guid: 65fdfa843e5ecdb4bb4eebc82a52a169, type: 3}

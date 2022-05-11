@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4856489828862833348}
   m_Layer: 0
-  m_Name: EndObsticle
+  m_Name: EndObstacle
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896265837212244725}
   m_Layer: 0
-  m_Name: Obsticles_1
+  m_Name: Obstacles_1
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
