@@ -10,7 +10,6 @@ public class FloorAndLampGenerator : MonoBehaviour
     [SerializeField] private Transform RoadStart;
     [SerializeField] private Transform RoadPart;
     [SerializeField] private Transform Player;
-    [SerializeField] private List<Sprite> LampSprites;
 
     private float lastRoadEndX;
     private Transform lastRoadPart;
@@ -41,10 +40,7 @@ public class FloorAndLampGenerator : MonoBehaviour
 
     private Transform SpawnRoadPart(Vector3 spawnPosition)
     {
-        Transform roadPart = Instantiate(RoadPart, spawnPosition, Quaternion.identity, this.transform);
-        int lampNumber = Random.Range(0, LampSprites.Count);
-        roadPart.Find("Lamp").GetComponent<SpriteRenderer>().sprite = LampSprites[lampNumber];
-        return roadPart;
+        return Instantiate(RoadPart, spawnPosition, Quaternion.identity, this.transform);
     }
 
     void RemoveRoadPart(Transform part)
