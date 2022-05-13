@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -27,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 7.0f;
 
+    [SerializeField] private Text Score;
+    private float Boost;
+    private int BoostDistance;
+    private bool ShouldBoost;
 
     private void Start()
     {
@@ -35,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         playerCameraDistance = new Vector3(transform.position.x - mainCamera.transform.position.x, 0, 0);
+
+        Boost = 0.5f;
+        BoostDistance = 100;
+        ShouldBoost = true;
     }
 
     private void Update()
@@ -92,6 +102,19 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Speed", speed);
             mainCamera.transform.position = 
                 new Vector3(transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z) - playerCameraDistance;
+        }
+
+
+        int scr = Int32.Parse(Score.text);
+        if (ShouldBoost && scr != 0 && scr % BoostDistance == 0)
+        {
+            speed += Boost;
+            rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
+            animator.SetFloat("Speed", speed);
+            ShouldBoost = false;
+        } else if(scr % BoostDistance == 1)
+        {
+            ShouldBoost = true;
         }
 	}
 
