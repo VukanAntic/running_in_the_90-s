@@ -2265,26 +2265,6 @@ MonoBehaviour:
   - {fileID: 8150775040830031339, guid: 65fdfa843e5ecdb4bb4eebc82a52a169, type: 3}
   - {fileID: 5393049301936468113, guid: 2c9c4be6268b9b8499188cde26678077, type: 3}
   Player: {fileID: 1179873239}
-  CarSprites:
-  - {fileID: 21300000, guid: a6d70656b12bdde4ba44bd090da6f13a, type: 3}
-  - {fileID: 21300000, guid: 9851c295f165e8f4fb678595f7d5bf37, type: 3}
-  - {fileID: 21300000, guid: 62ef7414e741d394f80c7995876a4ec8, type: 3}
-  - {fileID: 21300000, guid: 74739faf85900fb4bac3add7481b415e, type: 3}
-  DroneSprites:
-  - {fileID: 21300000, guid: 5bdd4bd3d5020bf4f8faedb6975267d7, type: 3}
-  - {fileID: 21300000, guid: 11a2bef82953fd34fb70abb09a758026, type: 3}
-  - {fileID: 21300000, guid: 178c468408a009d458bce95f9509afca, type: 3}
-  - {fileID: 21300000, guid: 400c3625415d63c46833d27398da3b70, type: 3}
-  LimoSprites:
-  - {fileID: 21300000, guid: a980c85458a662c40b24bd721f00fc48, type: 3}
-  - {fileID: 21300000, guid: 615bc5cac4ec8634aaa4adc6238ee2a0, type: 3}
-  - {fileID: 21300000, guid: c0ff90a00f7cc8f468f7474ff9e93048, type: 3}
-  - {fileID: 21300000, guid: 8a9ccce237e26164284f674883f4b890, type: 3}
-  UFOSprites:
-  - {fileID: 21300000, guid: 4d50b9617c1a5f14ca443d4fbc2e0aa9, type: 3}
-  - {fileID: 21300000, guid: 04086f7543b0c36428b8db56d14f7055, type: 3}
-  - {fileID: 21300000, guid: a916e08eadd3e5e41bcf14b2bbcce19e, type: 3}
-  - {fileID: 21300000, guid: e39b04f3a7c5b8a49b6a41bd0b6a4f2c, type: 3}
 --- !u!4 &1459058792
 Transform:
   m_ObjectHideFlags: 0

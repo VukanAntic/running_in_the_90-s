@@ -8,6 +8,7 @@ public class UFO : MonoBehaviour
     private List<Sprite> Chosen;
 
     private float ColorChangeTime;
+    private float MaxColorChangeTime;
     private int CurrentChosen;
 
     private float Speed;
@@ -23,7 +24,8 @@ public class UFO : MonoBehaviour
         Chosen.Add(UFOSprites[(UFONumber+Random.Range(1, UFOSprites.Count))%UFOSprites.Count]);
         this.GetComponent<SpriteRenderer>().sprite = Chosen[0];
 
-        ColorChangeTime = 0;
+        MaxColorChangeTime = Random.Range(3, 7) * 0.1f;
+        ColorChangeTime = 0f;
         CurrentChosen = 0;
 
         Speed = 0.02f * Random.Range(2, 10);
@@ -45,7 +47,7 @@ public class UFO : MonoBehaviour
         }
 
         ColorChangeTime += Time.deltaTime;
-        if (ColorChangeTime >= 0.5) 
+        if (ColorChangeTime >= MaxColorChangeTime) 
         {
             ColorChangeTime = 0;
             CurrentChosen = (CurrentChosen + 1) % 2;

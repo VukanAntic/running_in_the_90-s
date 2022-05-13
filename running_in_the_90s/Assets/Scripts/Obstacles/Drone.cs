@@ -8,6 +8,7 @@ public class Drone : MonoBehaviour
     private List<Sprite> Chosen;
 
     private float ColorChangeTime;
+    private float MaxColorChangeTime;
     private int CurrentChosen;
 
     private float Speed;
@@ -24,6 +25,10 @@ public class Drone : MonoBehaviour
         Chosen.Add(DroneSprites[droneNumber]);
         Chosen.Add(DroneSprites[(droneNumber + Random.Range(1, DroneSprites.Count)) % DroneSprites.Count]);
         this.GetComponent<SpriteRenderer>().sprite = Chosen[0];
+
+        MaxColorChangeTime = Random.Range(3, 7) * 0.1f;
+        ColorChangeTime = 0f;
+        CurrentChosen = 0;
 
         Speed = 0.02f * Random.Range(2,10);
         MaxMove = 0.2f;
@@ -44,7 +49,7 @@ public class Drone : MonoBehaviour
         }
 
         ColorChangeTime += Time.deltaTime;
-        if (ColorChangeTime >= 0.5)
+        if (ColorChangeTime >= MaxColorChangeTime)
         {
             ColorChangeTime = 0;
             CurrentChosen = (CurrentChosen + 1) % 2;
