@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,11 +11,6 @@ public class ObstacleGenerator : MonoBehaviour
     [SerializeField] private Transform ObstaclesStart;
     [SerializeField] private List<Transform> AllObstacles;
     [SerializeField] private Transform Player;
-
-    [SerializeField] private List<Sprite> CarSprites;
-    [SerializeField] private List<Sprite> DroneSprites;
-    [SerializeField] private List<Sprite> LimoSprites;
-    [SerializeField] private List<Sprite> UFOSprites;
 
     private float lastEndObstacleX;
     private Transform lastLevelPart;
@@ -49,33 +44,7 @@ public class ObstacleGenerator : MonoBehaviour
     private Transform SpawnLevelPart(Vector3 spawnPosition)
     {
         int obstacleNumber = Random.Range(0, AllObstacles.Count);
-        Transform obstacle = Instantiate(AllObstacles[obstacleNumber], spawnPosition, Quaternion.identity, this.transform);
-        switch(obstacleNumber)
-        {
-            case 0:
-                int carNumber = Random.Range(0, CarSprites.Count);
-                obstacle.Find("Car").GetComponent<SpriteRenderer>().sprite = CarSprites[carNumber];
-                break;
-            case 1:
-                int droneNumber = Random.Range(0, DroneSprites.Count);
-                obstacle.Find("Drone_1").GetComponent<SpriteRenderer>().sprite = DroneSprites[droneNumber];
-                droneNumber = Random.Range(0, DroneSprites.Count);
-                obstacle.Find("Drone_2").GetComponent<SpriteRenderer>().sprite = DroneSprites[droneNumber];
-                break;
-            case 2:
-                int limoNumber = Random.Range(0, LimoSprites.Count);
-                obstacle.Find("Limo").GetComponent<SpriteRenderer>().sprite = LimoSprites[limoNumber];
-                break;
-            case 3:
-                int UFONumber = Random.Range(0, UFOSprites.Count);
-                obstacle.Find("UFO_1").GetComponent<SpriteRenderer>().sprite = UFOSprites[UFONumber];
-                UFONumber = Random.Range(0, UFOSprites.Count);
-                obstacle.Find("UFO_2").GetComponent<SpriteRenderer>().sprite = UFOSprites[UFONumber];
-                break;
-            default:
-                break;
-        }
-        return obstacle;
+        return Instantiate(AllObstacles[obstacleNumber], spawnPosition, Quaternion.identity, this.transform);
     }
 
     void RemoveLevelPart(Transform part)
