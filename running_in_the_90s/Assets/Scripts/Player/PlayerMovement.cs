@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             playerStartedMoving = true;
+            Time.timeScale = 1f;
         }
 
         if (playerStartedMoving)

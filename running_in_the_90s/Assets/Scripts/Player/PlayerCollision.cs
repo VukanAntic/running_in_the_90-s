@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    [SerializeField] GameObject deathScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,9 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collisionInfo.collider.name == "Death")
         {
-            Debug.Log("You dead");
+            deathScreen.SetActive(!deathScreen.activeSelf);
+            Time.timeScale = 0f;
+
         }
     }
 }
