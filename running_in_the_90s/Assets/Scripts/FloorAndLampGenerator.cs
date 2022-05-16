@@ -10,6 +10,7 @@ public class FloorAndLampGenerator : MonoBehaviour
     [SerializeField] private Transform RoadStart;
     [SerializeField] private Transform RoadPart;
     [SerializeField] private Transform Player;
+    [SerializeField] private Transform FloorCollider;
 
     private float lastRoadEndX;
     private Transform lastRoadPart;
@@ -36,6 +37,7 @@ public class FloorAndLampGenerator : MonoBehaviour
         {
             RemoveRoadPart(spawnedRoads.Dequeue());
         }
+        FloorCollider.position = new Vector2(Player.position.x, FloorCollider.position.y);
     }
 
     private Transform SpawnRoadPart(Vector3 spawnPosition)

@@ -707,6 +707,7 @@ MonoBehaviour:
   RoadStart: {fileID: 1603323164}
   RoadPart: {fileID: 550940163110408172, guid: 23875b9df3de5e440a58f9220e61726f, type: 3}
   Player: {fileID: 1179873239}
+  FloorCollider: {fileID: 2111815958}
 --- !u!4 &185953719
 Transform:
   m_ObjectHideFlags: 0
@@ -719,6 +720,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1603323164}
+  - {fileID: 2111815958}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1792,7 +1794,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016663149, y: -0.19748685}
+  m_Offset: {x: 0.016663149, y: -0.21435095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1803,7 +1805,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1367861, y: 0.19778961}
+  m_Size: {x: 0.1367861, y: 0.23151782}
   m_EdgeRadius: 0
 --- !u!61 &1179873245
 BoxCollider2D:
@@ -2838,26 +2840,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoadStart
       objectReference: {fileID: 0}
-    - target: {fileID: 3246766264081293880, guid: 23875b9df3de5e440a58f9220e61726f, type: 3}
-      propertyPath: m_Size.x
-      value: 6.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 3246766264081293880, guid: 23875b9df3de5e440a58f9220e61726f, type: 3}
-      propertyPath: m_Size.y
-      value: 5.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 3246766264081293880, guid: 23875b9df3de5e440a58f9220e61726f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ba81a29b58c8276458de851a82a2a93a, type: 3}
-    - target: {fileID: 3246766264081293880, guid: 23875b9df3de5e440a58f9220e61726f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5849767047221180538, guid: 23875b9df3de5e440a58f9220e61726f, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23875b9df3de5e440a58f9220e61726f, type: 3}
 --- !u!4 &1603323164 stripped
@@ -3842,6 +3824,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103110721}
   m_CullTransparentMesh: 1
+--- !u!1 &2111815957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111815958}
+  - component: {fileID: 2111815959}
+  m_Layer: 0
+  m_Name: FloorCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2111815958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111815957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.172, y: -1.213, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185953719}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2111815959
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111815957}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.008397698, y: 0.38462758}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3107152, y: 0.19048533}
+  m_EdgeRadius: 0
 --- !u!1 &2114956748
 GameObject:
   m_ObjectHideFlags: 0

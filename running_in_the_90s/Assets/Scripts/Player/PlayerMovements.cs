@@ -25,7 +25,7 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private BoxCollider2D slideCollider;
 
 
-    [SerializeField] private float runSpeed;
+    [SerializeField] public float runSpeed;
 
     [SerializeField] private Text Score;
     [SerializeField] private float Boost;
