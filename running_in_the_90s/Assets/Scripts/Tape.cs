@@ -9,7 +9,6 @@ public class Tape : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Collide!");
         AudioManager manager = FindObjectOfType<AudioManager>();
         FindObjectOfType<AudioManager>().Play(tapeGenerator.current_tape);
         Destroy(gameObject);

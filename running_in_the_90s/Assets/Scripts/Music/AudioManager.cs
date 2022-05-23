@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        // hteli bi default muziku ovde, ne tape-1
         Play("Tape-1");
     }
 
@@ -43,12 +42,8 @@ public class AudioManager : MonoBehaviour
         if (previous_sound != null)
         {
             previous_sound.source.Stop();
-            // pustanje intro-a (ovde jer ne zelimo prvi put da se pusti!)
             intro.source.Play();
         }
-        
-
-        // pustanje normalne pesme
         AudioSource audio = GetComponent<AudioSource>();
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if(s == null)

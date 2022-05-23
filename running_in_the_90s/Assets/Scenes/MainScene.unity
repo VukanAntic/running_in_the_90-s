@@ -1914,6 +1914,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1535310607}
   deathScreen: {fileID: 1451225714}
   jumpSpeed: 4
+  playerStartedMoving: 0
   maxSlideDuration: 0.8
   regularCollider: {fileID: 1179873245}
   slideCollider: {fileID: 1604954046}
@@ -4140,7 +4141,7 @@ PrefabInstance:
     - target: {fileID: 5941500801269855385, guid: 864249a219e65d04b9df7fa6355aec5e, type: 3}
       propertyPath: player_movement
       value: 
-      objectReference: {fileID: 1179873246}
+      objectReference: {fileID: 1179873249}
     - target: {fileID: 5941500801269855385, guid: 864249a219e65d04b9df7fa6355aec5e, type: 3}
       propertyPath: player_transform
       value: 
