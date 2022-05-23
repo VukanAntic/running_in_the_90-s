@@ -17,6 +17,7 @@ public class PlayerMovements : MonoBehaviour
     private bool canJump;
     private bool isJumping;
     [SerializeField] private float jumpSpeed;
+    public bool playerStartedMoving = false;
 
     private bool isSliding;
     [SerializeField] private float maxSlideDuration;
@@ -25,7 +26,7 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private BoxCollider2D slideCollider;
 
 
-    [SerializeField] private float runSpeed;
+    [SerializeField] public float runSpeed;
 
     [SerializeField] private Text Score;
     [SerializeField] private float Boost;
@@ -171,6 +172,7 @@ public class PlayerMovements : MonoBehaviour
         while (!Input.GetKeyDown(KeyCode.S))
         {
             yield return null;
+            playerStartedMoving = true;
         }
 
         runSpeed = tmp;
